@@ -9,19 +9,25 @@
       <h1>The Meteor Times</h1>
     </header>
 
-    <ul>
-      {{> article}}
-    </ul>
+    {{> articles}}
   </div>
 </body>
 
+<template name="articles">
+  {{#each articles}}
+    {{> article}}
+  {{/each}}
+</template>
+
 <template name="article">
-  <li>
-    <p>
-      Article 1
-      {{#if currentUser}}
-      <span><a href="#">edit</a></span>
-      {{/if}}
-    </p>
-  </li>
+  <div class="article-header">
+    <h2>
+      {{headline}}
+      <span>{{author.name}}</span>
+    </h2>
+  </div>
+
+  <div class="article-body">
+    {{text}}
+  </div>
 </template>
