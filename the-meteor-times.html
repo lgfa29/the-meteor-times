@@ -5,14 +5,23 @@
 <body>
   <div class="container">
     <header>
+      {{> loginButtons}}
       <h1>The Meteor Times</h1>
     </header>
 
-    {{> hello}}
+    <ul>
+      {{> article}}
+    </ul>
   </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="article">
+  <li>
+    <p>
+      Article 1
+      {{#if currentUser}}
+      <span><a href="#">edit</a></span>
+      {{/if}}
+    </p>
+  </li>
 </template>
