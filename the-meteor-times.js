@@ -1,17 +1,23 @@
 Articles = new Mongo.Collection("articles");
 
-Router.configure({
-  layoutTemplate: 'main'
-});
+Meteor.methods({
+  addArticle: function(headline, text) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("Not authorized");
+    }
 
-Router.route("/", function() {
-  this.render("home");
-});
+    Articles.insert({
+      headline: headline,
+      text: text,
+      author_id: Meteor.userId()
+    });
+  },
 
-Router.route("/articles/:id", function() {
-  var id = new Mongo.ObjectID(this.params.id);
-  var article = Articles.findOne(id);
-  Session.set("currentArticle", article._id);
+  deleteArticle: function(articleId) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("Not authorized");
+    }
 
-  this.render("article", { data: article });
+    Articles.remove(articleId);
+  }
 });

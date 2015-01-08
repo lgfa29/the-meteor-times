@@ -4,11 +4,29 @@
 
 <template name="main">
   <div class="container">
-    <header>
-      {{> loginButtons}}
-      <h1><a href="/">The Meteor Times</a></h1>
-    </header>
 
-    {{> yield}}
+    <div class="row">
+      <header>
+        {{> loginButtons}}
+        <h1><a href="/">The Meteor Times</a></h1>
+        <h6>{{today}}</h6>
+      </header>
+      <hr />
+    </div>
+
+    <div class="row">
+      <div class="col-headlines col-md-8">
+        {{> yield}}
+      </div>
+
+      <div class="col-md-4">
+        {{> ads}}
+      </div>
+    </div>
+
   </div>
+</template>
+
+<template name="ads">
+  <p>This is an ad.</p>
 </template>

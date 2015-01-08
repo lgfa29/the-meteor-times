@@ -1,1 +1,45 @@
 /* CSS declarations go here */
+@font-face {
+  font-family: "Cuxhaven-Times";
+  src: url("/fonts/CuxhavenTimes.ttf");
+}
+
+header h1 {
+  text-align: center;
+  font-size: 400%;
+  font-family: "Cuxhaven-Times";
+}
+
+header h6 {
+  text-align: center;
+  opacity: 0.5;
+}
+
+.add-article-btn {
+  display: block;
+  border: 1px solid #00f;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.article-header .title {
+  font-size: 200%;
+}
+
+.col-headlines {
+  border-right: 1px solid #eee;
+}
+
+.article-form label {
+  display:block;
+  outline:red;
+}
+
+.article-form textarea {
+  width:100vw;
+  max-width:40em;
+  height:20em;
+  max-height:50vh;
+}
