@@ -1,7 +1,9 @@
 <template name="home">
-  <a class="add-article-btn" href="/articles/new">
-    Add article
-  </a>
+  {{#if currentUser}}
+    <a class="add-article-btn" href="/articles/new">
+      Add article
+    </a>
+  {{/if}}
   {{> articles}}
 </template>
 
