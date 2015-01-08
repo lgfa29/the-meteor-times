@@ -4,24 +4,50 @@
 
 <body>
   <div class="container">
-    <header>
-      {{> loginButtons}}
-      <h1>The Meteor Times</h1>
-    </header>
+    <div class="row">
+      <header>
+        {{> loginButtons}}
+        <h1>The Meteor Times</h1>
+        <h6>{{today}}</h6>
+      </header>
+      <hr />
+    </div>
 
-    <ul>
-      {{> article}}
-    </ul>
+    <div class="row">
+      <div class="col-headlines col-md-8">
+        {{> articles}}
+      </div>
+      <div class="col-md-4">
+        {{> ads}}
+      </div>
+    </div>
   </div>
 </body>
 
+<template name="articles">
+  {{#each articles}}
+    {{> article}}
+    <hr />
+  {{/each}}
+</template>
+
 <template name="article">
-  <li>
-    <p>
-      Article 1
-      {{#if currentUser}}
-      <span><a href="#">edit</a></span>
-      {{/if}}
-    </p>
-  </li>
+  <div class="article-header">
+    <span class="title">{{headline}}</span>
+    <span>by {{author.name}}</span>
+    {{#if currentUser}}
+    <a href="#">
+      <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+    </a>
+    {{/if}}
+  </div>
+
+  <div class="article-body">
+    {{text}}
+    <span>... <a href="#">read more</a></span>
+  </div>
+</template>
+
+<template name="ads">
+  <p>This is an ad.</p>
 </template>

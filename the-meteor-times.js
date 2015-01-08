@@ -1,11 +1,19 @@
+Articles = new Mongo.Collection("articles");
+
 if (Meteor.isClient) {
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
-}
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+  Template.body.helpers({
+    today: function () {
+      return new Date().toDateString();
+    }
+  });
+
+  Template.articles.helpers({
+    articles: function() {
+      return Articles.find();
+    }
   });
 }
