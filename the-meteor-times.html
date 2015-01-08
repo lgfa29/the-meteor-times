@@ -2,32 +2,13 @@
   <title>The Meteor Times</title>
 </head>
 
-<body>
+<template name="main">
   <div class="container">
     <header>
       {{> loginButtons}}
       <h1>The Meteor Times</h1>
     </header>
-
-    {{> articles}}
-  </div>
-</body>
-
-<template name="articles">
-  {{#each articles}}
-    {{> article}}
-  {{/each}}
-</template>
-
-<template name="article">
-  <div class="article-header">
-    <h2>
-      {{headline}}
-      <span>{{author.name}}</span>
-    </h2>
   </div>
 
-  <div class="article-body">
-    {{text}}
-  </div>
+  {{> yield}}
 </template>
