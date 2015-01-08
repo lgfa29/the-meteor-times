@@ -11,8 +11,8 @@ Router.route("/", function() {
 Router.route("/articles/:id", function() {
   this.render("article", {
     data: function() {
-      return Articles.findOne({ _id: this.params.id });
-    },
-    name: 'article.show'
+      var id = new Mongo.ObjectID(this.params.id);
+      return Articles.findOne(id);
+    }
   });
 });
