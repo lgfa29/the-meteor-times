@@ -1,11 +1,11 @@
 /* CSS declarations go here */
 
-.article-form label {
+.article_new label {
   display:block;
   outline:red;
 }
 
-.article-form textarea {
+.article_new textarea {
   width:100vw;
   max-width:40em;
   height:20em;

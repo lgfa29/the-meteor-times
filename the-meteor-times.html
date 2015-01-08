@@ -11,7 +11,7 @@
 
     {{> articles}}
 
-    {{> article_form}}
+    {{> article_new}}
   </div>
 </body>
 
@@ -27,7 +27,7 @@
       {{headline}}
       <span>{{author.name}}</span>
       {{#if currentUser}}
-        <button class="delete">&times;</button>
+        <button class="article_delete">&times;</button>
       {{/if}}
     </h2>
   </div>
@@ -35,21 +35,4 @@
   <div class="article-body">
     {{text}}
   </div>
-</template>
-
-<template name="article_form">
-  {{#if currentUser}}
-    <form class="article-form">
-        <label for="headline">Headline:
-        <input type="text" name="headline" placeholder="Article headline">
-        </label>
-        <label for="text">Article text:
-        <textarea name="text" placeholder="Article text">
-
-        </textarea>
-        </label>
-        <label>Author: {{currentUser.username}} </label>
-        <input type="submit">
-    </form>
-  {{/if}}
 </template>
