@@ -1,11 +1,32 @@
 <template name="article">
+  {{#if currentAuthor}}
+    {{> edit_article}}
+  {{else}}
+    {{> view_article}}
+  {{/if}}
+</template>
+
+<template name="view_article">
   <div class="article-header">
     <h2>
       <a href="/articles/{{_id.toHexString}}">{{headline}}</a>
       <span>{{author.name}}</span>
     </h2>
   </div>
-  
+
+  <div class="article-body">
+    {{text}}
+  </div>
+</template>
+
+<template name="edit_article">
+  <div class="article-header">
+    <h2>
+      <a href="/articles/{{_id.toHexString}}">{{headline}}</a>
+      <span>{{author.name}}</span>
+    </h2>
+  </div>
+
   <div class="article-body">
     {{text}}
   </div>

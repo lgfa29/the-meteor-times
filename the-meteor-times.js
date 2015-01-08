@@ -9,10 +9,9 @@ Router.route("/", function() {
 });
 
 Router.route("/articles/:id", function() {
-  this.render("article", {
-    data: function() {
-      var id = new Mongo.ObjectID(this.params.id);
-      return Articles.findOne(id);
-    }
-  });
+  var id = new Mongo.ObjectID(this.params.id);
+  var article = Articles.findOne(id);
+  Session.set("currentArticle", article._id);
+
+  this.render("article", { data: article });
 });
