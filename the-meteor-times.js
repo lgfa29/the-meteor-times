@@ -36,6 +36,9 @@ Meteor.methods({
     });
   },
   deleteArticle: function(articleId) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("Not authorized");
+    }
     Articles.remove(articleId);
   }
 })
