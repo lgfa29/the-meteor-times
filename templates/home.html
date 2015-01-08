@@ -1,0 +1,35 @@
+<template name="home">
+  <a class="add-article-btn" href="/articles/new">
+    Add article
+  </a>
+  {{> articles}}
+</template>
+
+<template name="articles">
+  {{#each articles}}
+    {{> article_preview}}
+    <hr />
+  {{/each}}
+</template>
+
+<template name="article_preview">
+  <div class="article-header">
+    <span class="title">
+      <a href="/articles/{{_id}}">{{headline}}</a>
+    </span>
+    <span>by {{author.name}}</span>
+
+    {{#if currentAuthor}}
+      <a href="#">
+        <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+      </a>
+    {{/if}}
+  </div>
+
+  <div class="article-body">
+    {{text}}
+    <span>
+      ... <a href="/articles/{{_id}}">read more</a>
+    </span>
+  </div>
+</template>

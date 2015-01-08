@@ -1,0 +1,16 @@
+<template name="new_article">
+  <form class="article-form">
+    <label for="headline">Headline:
+      <input type="text" name="headline" placeholder="Article headline">
+    </label>
+
+    <label for="text">Article text:
+      <textarea name="text" placeholder="Article text">
+      </textarea>
+    </label>
+
+    <label>Author: {{currentUser.username}} </label>
+
+    <input type="submit">
+  </form>
+</template>

@@ -2,54 +2,31 @@
   <title>The Meteor Times</title>
 </head>
 
-<body>
+<template name="main">
   <div class="container">
-    <header>
-      {{> loginButtons}}
-      <h1>The Meteor Times</h1>
-    </header>
 
-    {{> articles}}
+    <div class="row">
+      <header>
+        {{> loginButtons}}
+        <h1><a href="/">The Meteor Times</a></h1>
+        <h6>{{today}}</h6>
+      </header>
+      <hr />
+    </div>
 
-    {{> article_form}}
-  </div>
-</body>
+    <div class="row">
+      <div class="col-headlines col-md-8">
+        {{> yield}}
+      </div>
 
-<template name="articles">
-  {{#each articles}}
-    {{> article}}
-  {{/each}}
-</template>
+      <div class="col-md-4">
+        {{> ads}}
+      </div>
+    </div>
 
-<template name="article">
-  <div class="article-header">
-    <h2>
-      {{headline}}
-      <span>{{author.name}}</span>
-      {{#if currentUser}}
-        <button class="delete">&times;</button>
-      {{/if}}
-    </h2>
-  </div>
-
-  <div class="article-body">
-    {{text}}
   </div>
 </template>
 
-<template name="article_form">
-  {{#if currentUser}}
-    <form class="article-form">
-        <label for="headline">Headline:
-        <input type="text" name="headline" placeholder="Article headline">
-        </label>
-        <label for="text">Article text:
-        <textarea name="text" placeholder="Article text">
-
-        </textarea>
-        </label>
-        <label>Author: {{currentUser.username}} </label>
-        <input type="submit">
-    </form>
-  {{/if}}
+<template name="ads">
+  <p>This is an ad.</p>
 </template>
