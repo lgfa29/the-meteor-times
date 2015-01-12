@@ -7,11 +7,14 @@
     {{> article_preview}}
     <hr />
   {{/each}}
-  <div class="article-header">
-    <a href="/articles/new">
-      <span class="action glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
-    </a>
-  </div>
+
+  {{#if currentUser}}
+    <div class="article-header">
+      <a href="/articles/new">
+        <span class="action glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+      </a>
+    </div>
+  {{/if}}
 </template>
 
 <template name="article_preview">
