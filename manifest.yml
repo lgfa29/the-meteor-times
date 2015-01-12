@@ -1,0 +1,10 @@
+---
+applications:
+- name: the-meteor-times
+  host: themeteortimes
+  domain: mybluemix.net
+  buildpack: https://github.com/Sing-Li/bluemix-bp-meteor
+  path: .
+  disk: 1024M
+  mem: 512M
+  instances: 1
