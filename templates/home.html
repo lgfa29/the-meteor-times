@@ -1,0 +1,35 @@
+<template name="home">
+  {{> latest_articles}}
+</template>
+
+<template name="latest_articles">
+  {{#each articles}}
+    {{> article_preview}}
+    <hr />
+  {{/each}}
+  <div class="article-header">
+    <a href="/articles/new">
+      <span class="action glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+    </a>
+  </div>
+</template>
+
+<template name="article_preview">
+  <div class="article-header">
+    <span class="title">{{headline}}</span>
+    <span>by {{author.username}}</span>
+    {{#if currentUser}}
+      <a href="#">
+        <span class="action glyphicon glyphicon-remove pull-right" aria-hidden="true"></span>
+      </a>
+      <a href="#">
+        <span class="action glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span>
+      </a>
+    {{/if}}
+  </div>
+
+  <div class="article-body">
+    {{text}}
+    <span>... <a href="/articles/{{_id}}">read more</a></span>
+  </div>
+</template>

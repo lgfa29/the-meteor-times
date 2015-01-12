@@ -3,11 +3,14 @@
 </head>
 
 <body>
+</body>
+
+<template name="main">
   <div class="container">
     <div class="row">
       <header>
         {{> loginButtons}}
-        <h1>The Meteor Times</h1>
+        <a href="/"><h1>The Meteor Times</h1></a>
         <h6>{{today}}</h6>
       </header>
       <hr />
@@ -15,44 +18,13 @@
 
     <div class="row">
       <div class="col-headlines col-md-8">
-        {{> articles}}
+        {{> yield}}
       </div>
+
       <div class="col-md-4">
         {{> ads}}
       </div>
     </div>
-  </div>
-</body>
-
-<template name="articles">
-  {{#each articles}}
-    {{> article}}
-    <hr />
-  {{/each}}
-  <div class="article-header">
-    <a href="#">
-      <span class="action glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
-    </a>
-  </div>
-</template>
-
-<template name="article">
-  <div class="article-header">
-    <span class="title">{{headline}}</span>
-    <span>by {{author.name}}</span>
-    {{#if currentUser}}
-    <a href="#">
-      <span class="action glyphicon glyphicon-remove pull-right" aria-hidden="true"></span>
-    </a>
-    <a href="#">
-      <span class="action glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span>
-    </a>
-    {{/if}}
-  </div>
-
-  <div class="article-body">
-    {{text}}
-    <span>... <a href="#">read more</a></span>
   </div>
 </template>
 

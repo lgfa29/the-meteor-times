@@ -1,19 +1,6 @@
-Articles = new Mongo.Collection("articles");
-
-if (Meteor.isClient) {
-  Accounts.ui.config({
-    passwordSignupFields: "USERNAME_ONLY"
-  });
-
-  Template.body.helpers({
-    today: function () {
-      return new Date().toDateString();
-    }
-  });
-
-  Template.articles.helpers({
-    articles: function() {
-      return Articles.find();
-    }
-  });
-}
+Articles = new Mongo.Collection("articles", {
+  transform: function(doc) {
+    doc.author = Meteor.users.findOne(doc.author_id);
+    return doc;
+  }
+});

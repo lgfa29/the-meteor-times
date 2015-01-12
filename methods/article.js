@@ -3,14 +3,14 @@ Meteor.methods({
     if (!Meteor.userId()) {
       throw new Meteor.Error("Not authorized");
     }
-    var author = Meteor.user().username;
 
     Articles.insert({
       headline: headline,
       text: text,
-      author: { name: author }
+      author_id: Meteor.userId()
     });
   },
+  
   deleteArticle: function(articleId) {
     if (!Meteor.userId()) {
       throw new Meteor.Error("Not authorized");
