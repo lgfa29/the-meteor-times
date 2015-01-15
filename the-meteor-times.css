@@ -6,7 +6,7 @@
 header h1 {
   text-align: center;
   font-size: 400%;
-  font-family: "Cuxhaven-Times";
+  font-family: "Cuxhaven-Times", serif;
 }
 
 header h6 {
@@ -24,16 +24,4 @@ header h6 {
 
 .col-headlines {
   border-right: 1px solid #eee;
-}
-
-.article_new label {
-  display: block;
-  outline: red;
-}
-
-.article_new textarea {
-  width: 100vw;
-  max-width: 40em;
-  height: 20em;
-  max-height: 50vh;
 }
