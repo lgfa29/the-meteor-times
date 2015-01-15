@@ -1,0 +1,15 @@
+.article-header h2 span {
+  font-size: 50%;
+}
+
+.article-header .action {
+  margin-left: 10px;
+}
+
+.article-body {
+  border-bottom: 1px solid #eee;
+}
+
+.col-headlines {
+  border-right: 1px solid #eee;
+}

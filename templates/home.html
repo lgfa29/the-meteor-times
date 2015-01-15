@@ -1,3 +1,4 @@
+<!-- Articles -->
 <template name="home">
   {{> latest_articles}}
 </template>
@@ -5,7 +6,6 @@
 <template name="latest_articles">
   {{#each articles}}
     {{> article_preview}}
-    <hr />
   {{/each}}
 
   {{#if currentUser}}
@@ -19,20 +19,33 @@
 
 <template name="article_preview">
   <div class="article-header">
-    <span class="title">{{headline}}</span>
-    <span>by {{author.username}}</span>
-    {{#if currentUser}}
-      <a href="#">
-        <span class="action glyphicon glyphicon-remove pull-right" aria-hidden="true"></span>
-      </a>
-      <a href="#">
-        <span class="action glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span>
-      </a>
-    {{/if}}
+    <h2>
+      {{headline}}
+      <span class="article-author">by {{author.username}}</span>
+      {{#if currentUser}}
+        <span class="article-actions">
+          <a href="#">
+            <span class="action glyphicon glyphicon-remove pull-right" aria-hidden="true"></span>
+          </a>
+          <a href="#">
+            <span class="action glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span>
+          </a>
+        </span>
+      {{/if}}
+    </h2>
   </div>
 
   <div class="article-body">
-    {{text}}
-    <span>... <a href="/articles/{{_id}}">read more</a></span>
+    <p>
+      {{text}}
+      <span>... <a href="/articles/{{_id}}">read more</a></span>
+    </p>
   </div>
+</template>
+
+<!-- Ads -->
+<template name="ads">
+  {{#each ads}}
+    {{> ad}}
+  {{/each}}
 </template>

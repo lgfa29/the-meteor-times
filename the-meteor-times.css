@@ -1,3 +1,9 @@
+* {
+  font-family: "Helvetica Neue", Helvetica, serif;
+  font-weight: 200;
+  font-size: 105%;
+}
+
 @font-face {
   font-family: "Cuxhaven-Times";
   src: url("/fonts/CuxhavenTimes.ttf");
@@ -5,23 +11,21 @@
 
 header h1 {
   text-align: center;
-  font-size: 400%;
+}
+
+header h1 a {
+  font-size: 200%;
   font-family: "Cuxhaven-Times", serif;
+  color: black;
+}
+
+header a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
 }
 
 header h6 {
   text-align: center;
-  opacity: 0.5;
-}
-
-.article-header .title {
-  font-size: 200%;
-}
-
-.article-header .action {
-  margin-left: 10px;
-}
-
-.col-headlines {
-  border-right: 1px solid #eee;
+  color: #bbb;
 }

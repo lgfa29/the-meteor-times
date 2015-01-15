@@ -9,3 +9,9 @@ Template.latest_articles.helpers({
     return Articles.find();
   }
 });
+
+Template.ads.helpers({
+  ads: function() {
+    return Ads.find();
+  }
+});

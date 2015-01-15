@@ -4,3 +4,5 @@ Articles = new Mongo.Collection("articles", {
     return doc;
   }
 });
+
+Ads = new Mongo.Collection("ads");

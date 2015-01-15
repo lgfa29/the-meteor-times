@@ -1,0 +1,21 @@
+.ad {
+  border-bottom: 1px solid #eee;
+  font-size: 80%;
+}
+
+.ad h2 {
+  font-size: 100%;
+}
+
+.ad:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.ad .action {
+  display: none;
+}
+
+.ad:hover .action {
+  display: inherit;
+}
