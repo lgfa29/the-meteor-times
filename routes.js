@@ -7,7 +7,11 @@ Router.route("/", function() {
 });
 
 Router.route("/articles/new", function() {
-  this.render("article_new")
+  if (!Meteor.user() && !Meteor.loggingIn()) {
+    Router.go("/");
+  }
+
+  this.render("article_new");
 });
 
 Router.route("/articles/:id", function() {
