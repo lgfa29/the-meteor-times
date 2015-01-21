@@ -6,8 +6,8 @@ Template.main.helpers({
 
 Template.latest_articles.helpers({
   articles: function() {
-    if (Session.get("currentArticleID")) {
-      return Articles.find({_id: {$ne: Session.get("currentArticleID")}});
+    if (Session.get("currentArticleId") && Session.equals("newArticle", true)) {
+      return Articles.find({_id: {$ne: Session.get("currentArticleId")}});
     }
     return Articles.find();
   },
@@ -26,9 +26,15 @@ Template.ads.helpers({
 
 Template.article_new.helpers({
   currentArticle: function () {
-    if (Session.get("currentArticleID")) {
-      return Articles.findOne({_id: Session.get("currentArticleID")});
+    if (Session.get("currentArticleId")) {
+      return Articles.findOne({_id: Session.get("currentArticleId")});
     }
     return false;
+  }
+});
+
+Template.article_preview.helpers({
+  editingArticle: function() {
+    return Session.get("editingArticleId") == this._id;
   }
 });

@@ -1,8 +1,8 @@
 Template.article_new.events({
   "input input[name='headline']": function(event) {
 
-    if (Session.get("currentArticleID")) {
-      Meteor.call("updateArticleHeadline", Session.get("currentArticleID"), event.currentTarget.value);
+    if (Session.get("currentArticleId")) {
+      Meteor.call("updateArticleHeadline", Session.get("currentArticleId"), event.currentTarget.value);
     }
     else {
       var article = Articles.insert({
@@ -10,17 +10,18 @@ Template.article_new.events({
         text: "",
         author_id: Meteor.userId()
       });
-      Session.set("currentArticleID", article);
+      Session.set("currentArticleId", article);
     }
 
   },
   "input textarea": function(event) {
-    if (Session.get("currentArticleID")) {
-      Meteor.call("updateArticleText", Session.get("currentArticleID"), event.currentTarget.value);
+    if (Session.get("currentArticleId")) {
+      Meteor.call("updateArticleText", Session.get("currentArticleId"), event.currentTarget.value);
     }
   },
   "click button": function(event) {
+    Session.set("editingArticleId", undefined);
     Session.set("newArticle", undefined);
-    Session.set("currentArticleID", undefined);
+    Session.set("currentArticleId", undefined);
   }
 });
