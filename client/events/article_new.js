@@ -19,7 +19,8 @@ Template.article_new.events({
       Meteor.call("updateArticleText", Session.get("currentArticleID"), event.currentTarget.value);
     }
   },
-  "submit .article_new": function(event) {
+  "click button": function(event) {
+    Session.set("newArticle", undefined);
     Session.set("currentArticleID", undefined);
   }
 });
