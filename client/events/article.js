@@ -6,3 +6,10 @@
 //     }
 //   }
 // });
+
+
+Template.latest_articles.events({
+  "click div.article-header > a": function (event) {
+      Session.set("newArticle", true);
+  }
+});

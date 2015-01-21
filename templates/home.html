@@ -10,9 +10,13 @@
 
   {{#if currentUser}}
     <div class="article-header">
-      <a href="/articles/new">
-        <span class="action glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
-      </a>
+      {{#if newArticle}}
+        {{> article_new}}
+      {{else}}
+        <a class="article-create" href="#">
+          <span class="action glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+        </a>
+      {{/if}}
     </div>
   {{/if}}
 </template>
