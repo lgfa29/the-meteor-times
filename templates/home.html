@@ -29,7 +29,7 @@
   <div class="article-header">
     <h2>
       {{headline}}
-      <span class="article-author">by {{authorName}}</span>
+      <span class="article-author">by {{author.username}}</span>
       {{#if isAuthor}}
         <span class="article-actions">
           <a href="#">
@@ -45,8 +45,10 @@
 
   <div class="article-body">
     <p>
-      {{text}}
-      <span>... <a href="/articles/{{_id}}">read more</a></span>
+      {{#each preview}}
+        <p>{{this}}</p>
+      {{/each}}
+      <a href="/articles/{{_id}}">read more</a>
     </p>
   </div>
 </template>

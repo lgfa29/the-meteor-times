@@ -9,7 +9,7 @@ Template.latest_articles.helpers({
     if (Session.equals("currentAction", "new") && Session.get("currentArticleId")) {
       return Articles.find({_id: {$ne: Session.get("currentArticleId")}});
     }
-    return Articles.find();
+    return Articles.find().fetch();
   },
   isNewArticle: function () {
     return Session.equals("currentAction", "new");
@@ -28,5 +28,17 @@ Template.ads.helpers({
 Template.article_preview.helpers({
   authorName: function() {
     return Meteor.users.findOne(this.author_id).username;
+  },
+  preview: function() {
+    var t = "";
+
+    if (this.text.length > 400) {
+      t = this.text.substring(0, 200) + "\n...\n" + this.text.substring(this.text.length - 200);
+    }
+    else {
+      t = this.text;
+    }
+
+    return t.split("\n");
   }
 });
