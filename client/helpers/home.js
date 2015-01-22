@@ -24,3 +24,9 @@ Template.ads.helpers({
     return Ads.find();
   }
 });
+
+Template.article_preview.helpers({
+  authorName: function() {
+    return Meteor.users.findOne(this.author_id).username;
+  }
+});
