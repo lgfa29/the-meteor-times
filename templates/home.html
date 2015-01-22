@@ -5,12 +5,16 @@
 
 <template name="latest_articles">
   {{#each articles}}
-    {{> article_preview}}
+    {{#if isEditingArticle}}
+      {{> article_edit}}
+    {{else}}
+      {{> article_preview}}
+    {{/if}}
   {{/each}}
 
   {{#if currentUser}}
     <div class="article-header">
-      {{#if newArticle}}
+      {{#if isNewArticle}}
         {{> article_new}}
       {{else}}
         <a class="article-create" href="#">
@@ -22,33 +26,29 @@
 </template>
 
 <template name="article_preview">
-  {{#if editingArticle}}
-    {{> article_new}}
-  {{else}}
-    <div class="article-header">
-      <h2>
-        {{headline}}
-        <span class="article-author">by {{author.username}}</span>
-        {{#if isAuthor}}
-          <span class="article-actions">
-            <a href="#">
-              <span class="action glyphicon glyphicon-remove pull-right" aria-hidden="true"></span>
-            </a>
-            <a href="#">
-              <span class="action glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span>
-            </a>
-          </span>
-        {{/if}}
-      </h2>
-    </div>
+  <div class="article-header">
+    <h2>
+      {{headline}}
+      <span class="article-author">by {{author.username}}</span>
+      {{#if isAuthor}}
+        <span class="article-actions">
+          <a href="#">
+            <span class="action glyphicon glyphicon-remove pull-right" aria-hidden="true"></span>
+          </a>
+          <a href="#">
+            <span class="action glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span>
+          </a>
+        </span>
+      {{/if}}
+    </h2>
+  </div>
 
-    <div class="article-body">
-      <p>
-        {{text}}
-        <span>... <a href="/articles/{{_id}}">read more</a></span>
-      </p>
-    </div>
-  {{/if}}
+  <div class="article-body">
+    <p>
+      {{text}}
+      <span>... <a href="/articles/{{_id}}">read more</a></span>
+    </p>
+  </div>
 </template>
 
 <!-- Ads -->
